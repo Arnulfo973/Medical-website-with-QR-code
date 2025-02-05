@@ -28,22 +28,22 @@ export default function RoleForm() {
 
   return (
     <div className='w-[100vw] h-[100vh]'>
-      <div className='flex justify-center items-center mt-[200px]'>
-        <div>
+      <div className='flex justify-center items-center mt-[40%] md:mt-[20%] lg:mt-[12%]'>
+        <div className='ml-2 md:ml-0 '>
           <button className='focus:opacity-75' onClick={doctor}>
             <Image src="/doctor.jpg" width={400} height={400} alt='doctor' className='rounded-lg cursor-pointer' />
           </button>
-          <p className='mt-2 text-xl text-sky-500 font-bold text-center'>I am a healthcare personnel.</p>
+          <p className='mt-2 text-lg text-sky-500 font-semibold text-center h-[50px]'>I am a healthcare personnel.</p>
         </div>
-        <div>
+        <div className='ml-2 mr-2 lg:ml-5 md:mr-0'>
           <button className='focus:opacity-75' onClick={patient}>
-            <Image src="/patient.jpg" width={400} height={400} alt='patient' className='ml-5 rounded-lg cursor-pointer' />
+            <Image src="/patient.jpg" width={400} height={400} alt='patient' className='rounded-lg cursor-pointer' />
           </button>
-          <p className='mt-2 text-xl text-sky-500 font-bold text-center'>I am a patient.</p>
+          <p className='mt-2 text-lg text-sky-500 font-semibold text-center h-[50px]'>I am a patient.</p>
         </div>
       </div>
       <div className='flex justify-center items-center'>
-        <button className='border border-sky-500 text-lg text-sky-500 font-bole hover:bg-sky-500 hover:text-white w-96 h-8 mt-5 rounded-md' onClick={next}>NEXT</button>
+        <button className='border border-sky-500 text-lg text-sky-500 font-bold hover:bg-sky-500 hover:text-white w-72 md:w-96 h-8 mt-5 rounded-md' onClick={next}>NEXT</button>
       </div>
     </div>
   );
