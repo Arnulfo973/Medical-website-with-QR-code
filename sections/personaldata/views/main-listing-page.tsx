@@ -3,7 +3,7 @@ import PageContainer from '@/components/layout/page-container';
 import { Separator } from '@/components/ui/separator';
 import MedicalPage from '../medical-page';
 
-const breadcrumbItems = [{ title: 'Personal Medical Data', link: '/main' }];
+const breadcrumbItems = [{ title: 'Personal Medical Data', link: '/personaldata' }];
 
 type TEmployeeListingPage = {};
 

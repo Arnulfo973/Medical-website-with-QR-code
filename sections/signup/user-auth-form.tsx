@@ -43,7 +43,6 @@ export default function UserAuthForm() {
   const onSubmit = async (data: UserFormValue) => {
     startTransition(async () => {
       try {
-        // Replace signIn with your signUp function or API call
         const response = await signUp({
           fullname: data.fullname,
           email: data.email,
@@ -51,20 +50,17 @@ export default function UserAuthForm() {
         });
 
         if (response.error) {
-          // Handle error (e.g. show error message)
           console.error('Signup error:', response.error);
           return;
         }
 
         router.push('/');
       } catch (error) {
-        // Handle errors that do not come from the response
         console.error('Signup error:', error);
       }
     });
   };
 
-  // Example signUp function
   const signUp = async (userData: {
     fullname: string;
     email: string;
@@ -86,7 +82,7 @@ export default function UserAuthForm() {
           description: 'Sorry! Your email already exists. Please try again'
         });
 
-        return { error: errorData.message || 'Signup failed' }; // Handle response error
+        return { error: errorData.message || 'Signup failed' };
       }
 
       toast({
@@ -94,13 +90,13 @@ export default function UserAuthForm() {
         description: 'Welcome! Your request has been success.'
       });
 
-      return await response.json(); // Assume successful response returns user data or a success message
+      return await response.json();
     } catch (error) {
       toast({
         title: '😭️ Signup Failed',
         description: 'Sorry! Your SignUp has been failed. Please try again'
       });
-      throw error; // Rethrow or return an error response
+      throw error;
     }
   };
 

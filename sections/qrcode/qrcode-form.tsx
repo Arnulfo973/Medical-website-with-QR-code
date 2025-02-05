@@ -53,8 +53,7 @@ export default function MedicalPage() {
       }
 
       if (response.status == 201) {
-        localStorage.setItem('medicalCode', JSON.stringify(qrcode));
-        router.push('/main');
+        router.push('/personaldata');
       }
 
       toast({
@@ -62,7 +61,7 @@ export default function MedicalPage() {
         description: 'Welcome!'
       });
 
-      router.push('/main');
+      router.push('/personaldata');
 
       return await response.json();
     } catch (error) {

@@ -74,6 +74,34 @@ export default function MedicalPage() {
     token: userInfo.token
   };
 
+  const handleChange = (e: any) => {
+    const { value } = e.target;
+
+    const formattedValue = value
+      .replace(/[^0-9]/g, '')
+      .replace(/(\d{2})(\d)/, '$1/$2')
+      .replace(/(\/\d{2})(\d)/, '$1/$2')
+      .replace(/(\/\d{2})\/(\d{0,4})/, '$1/$2')
+      .substring(0, 10);
+
+    setBirth(formattedValue);
+  };
+
+  const handleChangeZipcode = (e: any) => {
+    const value = e.target.value.replace(/[^0-9]/g, '');
+    setZipcode(value);
+  };
+
+  const handleChangePhone = (e: any) => {
+    const value = e.target.value.replace(/[^0-9]/g, '');
+    setPhone(value);
+  };
+
+  const handleChangePhone2 = (e: any) => {
+    const value = e.target.value.replace(/[^0-9]/g, '');
+    setPhone2(value);
+  };
+
   const onSubmit = async (medicalData: MedicalData) => {
     if (!name || !birth || !address || !country || !city || !zipcode || !ethnicity || !gender || !phone || !height || !weight || !importantinfo || !medicalhistory || !medication || !allergie || !phone2 || !name2 || !relationship || !dnr) {
       toast({
@@ -82,6 +110,7 @@ export default function MedicalPage() {
       });
       return;
     }
+
 
     try {
       const response = await fetch('/api/medicaldata', {
@@ -144,7 +173,12 @@ export default function MedicalPage() {
             </div>
             <div className='flex mt-1 items-center'>
               <p className='w-44'>Date of Birth:</p>
-              <input className='border border-sky-500 rounded-md text-lg outline-none px-3 py-1 text-gray-600 w-96' onChange={(e) => setBirth(e.target.value)} />
+              <input
+                className='border border-sky-500 rounded-md text-lg outline-none px-3 py-1 text-gray-600 w-96'
+                value={birth}
+                onChange={handleChange}
+                placeholder="MM/DD/YYYY"
+              />
             </div>
             <div className='flex mt-1 items-center'>
               <p className='w-44'>Address:</p>
@@ -160,7 +194,7 @@ export default function MedicalPage() {
             </div>
             <div className='flex mt-1 items-center'>
               <p className='w-44'>Zip Code:</p>
-              <input className='border border-sky-500 rounded-md text-lg outline-none px-3 py-1 text-gray-600 w-96' onChange={(e) => setZipcode(e.target.value)} />
+              <input className='border border-sky-500 rounded-md text-lg outline-none px-3 py-1 text-gray-600 w-96' value={zipcode} onChange={handleChangeZipcode} />
             </div>
             <div className='flex mt-1 items-center'>
               <p className='w-44'>Ethnicity:</p>
@@ -175,15 +209,20 @@ export default function MedicalPage() {
             </div>
             <div className='flex mt-1 items-center'>
               <p className='w-44'>Phone:</p>
-              <input className='border border-sky-500 rounded-md text-lg outline-none px-3 py-1 text-gray-600 w-96' onChange={(e) => setPhone(e.target.value)} />
+              <input
+                type='tel'
+                className='border border-sky-500 rounded-md text-lg outline-none px-3 py-1 text-gray-600 w-96'
+                value={phone} 
+                onChange={handleChangePhone}
+              />
             </div>
             <div className='flex mt-1 items-center'>
               <p className='w-44'>Height:</p>
-              <input className='border border-sky-500 rounded-md text-lg outline-none px-3 py-1 text-gray-600 w-96' onChange={(e) => setHeight(e.target.value)} />
+              <input type='number' className='border border-sky-500 rounded-md text-lg outline-none px-3 py-1 text-gray-600 w-96' onChange={(e) => setHeight(e.target.value)} />
             </div>
             <div className='flex mt-1 items-center'>
               <p className='w-44'>Weight:</p>
-              <input className='border border-sky-500 rounded-md text-lg outline-none px-3 py-1 text-gray-600 w-96' onChange={(e) => setWeight(e.target.value)} />
+              <input type='number' className='border border-sky-500 rounded-md text-lg outline-none px-3 py-1 text-gray-600 w-96' onChange={(e) => setWeight(e.target.value)} />
             </div>
           </div>
           <div className='w-[50%]'>
@@ -210,7 +249,12 @@ export default function MedicalPage() {
             <p className='text-lg text-red-500 font-bold'>In case of emergency, contact:</p>
             <div className='flex mt-2 items-center'>
               <p className='w-44'>Phone Number:</p>
-              <input className='border border-sky-500 rounded-md text-lg outline-none px-3 py-1 text-gray-600' onChange={(e) => setPhone2(e.target.value)} />
+              <input
+                type='tel'
+                className='border border-sky-500 rounded-md text-lg outline-none px-3 py-1 text-gray-600'
+                value={phone2}
+                onChange={handleChangePhone2}
+              />
             </div>
             <div className='flex mt-2 items-center'>
               <p className='w-44'>Name:</p>

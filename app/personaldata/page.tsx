@@ -1,4 +1,4 @@
-import { MainListingPage } from '@/sections/main/views';
+import { MainListingPage } from '@/sections/personaldata/views';
 
 export const metadata = {
   title: 'MED'

@@ -20,7 +20,7 @@ export default function RoleForm() {
     if (role === "patient") {
       router.push("/qrcode");
     } else if(role === "doctor") {
-      router.push("/main");
+      router.push("/searchdata");
     } else {
       return;
     }
@@ -31,13 +31,13 @@ export default function RoleForm() {
       <div className='flex justify-center items-center mt-[200px]'>
         <div>
           <button className='focus:opacity-75' onClick={doctor}>
-            <Image src="/doctor.jpg" width={400} height={400} alt='doctor' className='rounded-lg cursor-pointer hover:opacity-75' />
+            <Image src="/doctor.jpg" width={400} height={400} alt='doctor' className='rounded-lg cursor-pointer' />
           </button>
           <p className='mt-2 text-xl text-sky-500 font-bold text-center'>I am a healthcare personnel.</p>
         </div>
         <div>
           <button className='focus:opacity-75' onClick={patient}>
-            <Image src="/patient.jpg" width={400} height={400} alt='patient' className='ml-5 rounded-lg cursor-pointer hover:opacity-75' />
+            <Image src="/patient.jpg" width={400} height={400} alt='patient' className='ml-5 rounded-lg cursor-pointer' />
           </button>
           <p className='mt-2 text-xl text-sky-500 font-bold text-center'>I am a patient.</p>
         </div>

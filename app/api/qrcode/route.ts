@@ -8,19 +8,15 @@ export const POST = async (request: NextRequest) => {
     await dbConnect();
 
     try {
-        // Find the user by the token
         const user = await User.findOne({ token: token });
 
-        // If user does not exist, return an error
         if (!user) {
             return NextResponse.json({ error: 'User not found' }, { status: 404 });
         }
 
-        // Compare qrcode with user's qrcodestring
         const { qrcodestring } = user;
 
         if (!qrcodestring) {
-            // Update the user's qrcodestring
             user.qrcodestring = qrcode;
             await user.save();
             return NextResponse.json({ message: 'QR code updated' }, { status: 200 });
@@ -28,7 +24,6 @@ export const POST = async (request: NextRequest) => {
             return NextResponse.json({ message: 'QR code already exists' }, { status: 502 });
         }
         else {
-            // qrcodestring is the same as qrcode
             return NextResponse.json(
                 { message: 'OK', qrcode: qrcode },
                 { status: 201 }
