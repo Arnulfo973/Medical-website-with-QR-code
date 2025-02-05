@@ -142,7 +142,6 @@ export default function MedicalPage() {
     }
   };
 
-
   return (
     <div className='flex justify-center w-[96vw] bg-sky-500 py-10'>
       <div className='border w-[70vw] p-8 bg-white'>

@@ -1,6 +1,6 @@
 'use client';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { toast } from '@/components/ui/use-toast';
 
 interface MedicalData {
@@ -31,6 +31,7 @@ const userInfo = userInfoStr ? JSON.parse(userInfoStr) : {};
 
 export default function MedicalPage() {
 
+  const [userdata, setUserdata] = useState<MedicalData[]>([]);
   const [name, setName] = useState<string>("");
   const [birth, setBirth] = useState<string>("");
   const [address, setAddress] = useState<string>("");
@@ -73,6 +74,61 @@ export default function MedicalPage() {
     dnr: dnr,
     token: userInfo.token
   };
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        if (!userInfo.token) {
+          throw new Error('User not authenticated.');
+        }
+
+        const response = await fetch('/api/getuser', {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${userInfo.token}`
+          }
+        });
+
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+
+        const result = await response.json();
+
+        setUserdata(result.data);
+
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    }
+
+    fetchData();
+  }, [userInfo]);
+
+  useEffect(() => {
+    if (userdata.length > 0) {
+      setName(userdata[0].name);
+      setBirth(userdata[0].birthday);
+      setAddress(userdata[0].address);
+      setCountry(userdata[0].country);
+      setCity(userdata[0].city);
+      setZipcode(userdata[0].zipcode);
+      setEthnicity(userdata[0].ethnicity);
+      setGender(userdata[0].gender);
+      setPhone(userdata[0].phone);
+      setHeight(userdata[0].height);
+      setWeight(userdata[0].weight);
+      setImportantinfo(userdata[0].importantinfo);
+      setMedicalhistory(userdata[0].medicalhistory);
+      setMedication(userdata[0].medication);
+      setAllergie(userdata[0].allergie);
+      setPhone2(userdata[0].phone2);
+      setName2(userdata[0].name2);
+      setRelationship(userdata[0].relationship);
+      setDNR(userdata[0].dnr);
+    }
+  }, [userdata])
 
   const handleChange = (e: any) => {
     const { value } = e.target;
@@ -169,7 +225,8 @@ export default function MedicalPage() {
           <div className='w-[50%]'>
             <div className='flex mt-1 items-center'>
               <p className='w-44'>Name:</p>
-              <input className='border border-sky-500 rounded-md text-lg outline-none px-3 py-1 text-gray-600 w-96' onChange={(e) => setName(e.target.value)} />
+              <input className='border border-sky-500 rounded-md text-lg outline-none px-3 py-1 text-gray-600 w-96'
+                onChange={(e) => setName(e.target.value)} defaultValue={name} />
             </div>
             <div className='flex mt-1 items-center'>
               <p className='w-44'>Date of Birth:</p>
@@ -182,27 +239,33 @@ export default function MedicalPage() {
             </div>
             <div className='flex mt-1 items-center'>
               <p className='w-44'>Address:</p>
-              <input className='border border-sky-500 rounded-md text-lg outline-none px-3 py-1 text-gray-600 w-96' onChange={(e) => setAddress(e.target.value)} />
+              <input className='border border-sky-500 rounded-md text-lg outline-none px-3 py-1 text-gray-600 w-96'
+                onChange={(e) => setAddress(e.target.value)} defaultValue={address} />
             </div>
             <div className='flex mt-1 items-center'>
               <p className='w-44'>Country:</p>
-              <input className='border border-sky-500 rounded-md text-lg outline-none px-3 py-1 text-gray-600 w-96' onChange={(e) => setCountry(e.target.value)} />
+              <input className='border border-sky-500 rounded-md text-lg outline-none px-3 py-1 text-gray-600 w-96'
+                onChange={(e) => setCountry(e.target.value)} defaultValue={country} />
             </div>
             <div className='flex mt-1 items-center'>
               <p className='w-44'>City:</p>
-              <input className='border border-sky-500 rounded-md text-lg outline-none px-3 py-1 text-gray-600 w-96' onChange={(e) => setCity(e.target.value)} />
+              <input className='border border-sky-500 rounded-md text-lg outline-none px-3 py-1 text-gray-600 w-96'
+                onChange={(e) => setCity(e.target.value)} defaultValue={city} />
             </div>
             <div className='flex mt-1 items-center'>
               <p className='w-44'>Zip Code:</p>
-              <input className='border border-sky-500 rounded-md text-lg outline-none px-3 py-1 text-gray-600 w-96' value={zipcode} onChange={handleChangeZipcode} />
+              <input className='border border-sky-500 rounded-md text-lg outline-none px-3 py-1 text-gray-600 w-96'
+                value={zipcode} onChange={handleChangeZipcode} />
             </div>
             <div className='flex mt-1 items-center'>
               <p className='w-44'>Ethnicity:</p>
-              <input className='border border-sky-500 rounded-md text-lg outline-none px-3 py-1 text-gray-600 w-96' onChange={(e) => setEthnicity(e.target.value)} />
+              <input className='border border-sky-500 rounded-md text-lg outline-none px-3 py-1 text-gray-600 w-96'
+                onChange={(e) => setEthnicity(e.target.value)} defaultValue={ethnicity} />
             </div>
             <div className='flex mt-1 items-center'>
               <p className='w-44'>Gender:</p>
-              <select className='border border-sky-500 rounded-md text-lg outline-none px-3 py-1 text-gray-600 w-96' onChange={(e) => setGender(e.target.value)}>
+              <select className='border border-sky-500 rounded-md text-lg outline-none px-3 py-1 text-gray-600 w-96'
+                onChange={(e) => setGender(e.target.value)} defaultValue={gender}>
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
               </select>
@@ -212,36 +275,42 @@ export default function MedicalPage() {
               <input
                 type='tel'
                 className='border border-sky-500 rounded-md text-lg outline-none px-3 py-1 text-gray-600 w-96'
-                value={phone} 
+                value={phone}
                 onChange={handleChangePhone}
               />
             </div>
             <div className='flex mt-1 items-center'>
               <p className='w-44'>Height:</p>
-              <input type='number' className='border border-sky-500 rounded-md text-lg outline-none px-3 py-1 text-gray-600 w-96' onChange={(e) => setHeight(e.target.value)} />
+              <input type='number' className='border border-sky-500 rounded-md text-lg outline-none px-3 py-1 text-gray-600 w-96'
+                onChange={(e) => setHeight(e.target.value)} defaultValue={height} />
             </div>
             <div className='flex mt-1 items-center'>
               <p className='w-44'>Weight:</p>
-              <input type='number' className='border border-sky-500 rounded-md text-lg outline-none px-3 py-1 text-gray-600 w-96' onChange={(e) => setWeight(e.target.value)} />
+              <input type='number' className='border border-sky-500 rounded-md text-lg outline-none px-3 py-1 text-gray-600 w-96'
+                onChange={(e) => setWeight(e.target.value)} defaultValue={weight} />
             </div>
           </div>
           <div className='w-[50%]'>
             <p className='text-xl text-red-500 font-bold'>Important Information</p>
-            <textarea className='border border-sky-500 outline-none px-2 py-1 w-[90%] h-[90%] mt-2 text-gray-600 text-lg' onChange={(e) => setImportantinfo(e.target.value)}></textarea>
+            <textarea className='border border-sky-500 outline-none px-2 py-1 w-[90%] h-[90%] mt-2 text-gray-600 text-lg'
+              onChange={(e) => setImportantinfo(e.target.value)} defaultValue={importantinfo}></textarea>
           </div>
         </div>
         <div className='mt-8'>
           <div className='h-36'>
             <p>Medical History:</p>
-            <textarea className='border border-sky-500 outline-none px-2 py-1 w-[100%] h-28 rounded-md text-gray-600 text-lg' onChange={(e) => setMedicalhistory(e.target.value)}></textarea>
+            <textarea className='border border-sky-500 outline-none px-2 py-1 w-[100%] h-28 rounded-md text-gray-600 text-lg'
+              onChange={(e) => setMedicalhistory(e.target.value)} defaultValue={medicalhistory}></textarea>
           </div>
           <div className='h-36'>
             <p>Medications:</p>
-            <textarea className='border border-sky-500 outline-none px-2 py-1 w-[100%] h-28 rounded-md text-gray-600 text-lg' onChange={(e) => setMedication(e.target.value)}></textarea>
+            <textarea className='border border-sky-500 outline-none px-2 py-1 w-[100%] h-28 rounded-md text-gray-600 text-lg'
+              onChange={(e) => setMedication(e.target.value)} defaultValue={medication}></textarea>
           </div>
           <div className='h-36'>
             <p>Allergies:</p>
-            <textarea className='border border-sky-500 outline-none px-2 py-1 w-[100%] h-28 rounded-md text-gray-600 text-lg' onChange={(e) => setAllergie(e.target.value)}></textarea>
+            <textarea className='border border-sky-500 outline-none px-2 py-1 w-[100%] h-28 rounded-md text-gray-600 text-lg'
+              onChange={(e) => setAllergie(e.target.value)} defaultValue={allergie}></textarea>
           </div>
         </div>
         <div className='flex mt-5'>
@@ -258,16 +327,19 @@ export default function MedicalPage() {
             </div>
             <div className='flex mt-2 items-center'>
               <p className='w-44'>Name:</p>
-              <input className='border border-sky-500 rounded-md text-lg outline-none px-3 py-1 text-gray-600' onChange={(e) => setName2(e.target.value)} />
+              <input className='border border-sky-500 rounded-md text-lg outline-none px-3 py-1 text-gray-600'
+                onChange={(e) => setName2(e.target.value)} defaultValue={name2} />
             </div>
             <div className='flex mt-2 items-center'>
               <p className='w-44'>Relationship:</p>
-              <input className='border border-sky-500 rounded-md text-lg outline-none px-3 py-1 text-gray-600' onChange={(e) => setRelationship(e.target.value)} />
+              <input className='border border-sky-500 rounded-md text-lg outline-none px-3 py-1 text-gray-600'
+                onChange={(e) => setRelationship(e.target.value)} defaultValue={relationship} />
             </div>
           </div>
           <div className='w-[50%]'>
             <p className='text-lg text-red-500 font-bold'>DNR/DNI</p>
-            <textarea className='border border-sky-500 outline-none px-2 py-1 w-[90%] h-[90%] mt-2 text-gray-600 text-lg' onChange={(e) => setDNR(e.target.value)}></textarea>
+            <textarea className='border border-sky-500 outline-none px-2 py-1 w-[90%] h-[90%] mt-2 text-gray-600 text-lg'
+              onChange={(e) => setDNR(e.target.value)} defaultValue={dnr}></textarea>
           </div>
         </div>
       </div>
