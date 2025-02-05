@@ -265,7 +265,7 @@ export default function MedicalPage() {
             <div className='flex mt-1 items-center'>
               <p className='w-44'>Gender:</p>
               <select className='border border-sky-500 rounded-md text-lg outline-none px-3 py-1 text-gray-600 w-96'
-                onChange={(e) => setGender(e.target.value)} defaultValue={gender}>
+                onChange={(e) => setGender(e.target.value)} value={gender}>
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
               </select>
