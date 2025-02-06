@@ -210,14 +210,11 @@ export default function MedicalPage() {
   };
 
   const formatHeight = (value: any) => {
-    // Remove non-numeric characters
     const numbers = value.replace(/\D/g, '');
 
-    // Format to <00' 00">
-    const feet = numbers.slice(0, 2); // First two digits for feet
-    const inches = numbers.slice(2, 4); // Next two digits for inches
+    const feet = numbers.slice(0, 2);
+    const inches = numbers.slice(2, 4);
 
-    // Construct formatted height
     let formattedHeight = '';
     if (feet) formattedHeight += `${feet}'`;
     if (inches) formattedHeight += ` ${inches}"`;
