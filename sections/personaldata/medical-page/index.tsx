@@ -225,13 +225,13 @@ export default function MedicalPage() {
           <div className='md:px-2'>
             <div className='flex mt-1 items-center'>
               <p className='w-32 xl:w-44'>Name:</p>
-              <input className='border border-sky-500 rounded-md text-lg outline-none px-3 py-1 text-gray-600 w-full sm:w-72'
+              <input className='border border-sky-500 rounded-md text-lg outline-none px-3 py-1 text-gray-600 w-full sm:w-72 bg-white'
                 onChange={(e) => setName(e.target.value)} defaultValue={name} />
             </div>
             <div className='flex mt-1 items-center'>
               <p className='w-32 xl:w-44'>Date of Birth:</p>
               <input
-                className='border border-sky-500 rounded-md text-lg outline-none px-3 py-1 text-gray-600 w-full sm:w-72'
+                className='border border-sky-500 rounded-md text-lg outline-none px-3 py-1 text-gray-600 w-full sm:w-72 bg-white'
                 value={birth}
                 onChange={handleChange}
                 placeholder="MM/DD/YYYY"
@@ -239,32 +239,32 @@ export default function MedicalPage() {
             </div>
             <div className='flex mt-1 items-center'>
               <p className='w-32 xl:w-44'>Address:</p>
-              <input className='border border-sky-500 rounded-md text-lg outline-none px-3 py-1 text-gray-600 w-full sm:w-72'
+              <input className='border border-sky-500 rounded-md text-lg outline-none px-3 py-1 text-gray-600 w-full sm:w-72 bg-white'
                 onChange={(e) => setAddress(e.target.value)} defaultValue={address} />
             </div>
             <div className='flex mt-1 items-center'>
               <p className='w-32 xl:w-44'>Country:</p>
-              <input className='border border-sky-500 rounded-md text-lg outline-none px-3 py-1 text-gray-600 w-full sm:w-72'
+              <input className='border border-sky-500 rounded-md text-lg outline-none px-3 py-1 text-gray-600 w-full sm:w-72 bg-white'
                 onChange={(e) => setCountry(e.target.value)} defaultValue={country} />
             </div>
             <div className='flex mt-1 items-center'>
               <p className='w-32 xl:w-44'>City:</p>
-              <input className='border border-sky-500 rounded-md text-lg outline-none px-3 py-1 text-gray-600 w-full sm:w-72'
+              <input className='border border-sky-500 rounded-md text-lg outline-none px-3 py-1 text-gray-600 w-full sm:w-72 bg-white'
                 onChange={(e) => setCity(e.target.value)} defaultValue={city} />
             </div>
             <div className='flex mt-1 items-center'>
               <p className='w-32 xl:w-44'>Zip Code:</p>
-              <input className='border border-sky-500 rounded-md text-lg outline-none px-3 py-1 text-gray-600 w-full sm:w-72'
+              <input className='border border-sky-500 rounded-md text-lg outline-none px-3 py-1 text-gray-600 w-full sm:w-72 bg-white'
                 value={zipcode} onChange={handleChangeZipcode} />
             </div>
             <div className='flex mt-1 items-center'>
               <p className='w-32 xl:w-44'>Ethnicity:</p>
-              <input className='border border-sky-500 rounded-md text-lg outline-none px-3 py-1 text-gray-600 w-full sm:w-72'
+              <input className='border border-sky-500 rounded-md text-lg outline-none px-3 py-1 text-gray-600 w-full sm:w-72 bg-white'
                 onChange={(e) => setEthnicity(e.target.value)} defaultValue={ethnicity} />
             </div>
             <div className='flex mt-1 items-center'>
               <p className='w-32 xl:w-44'>Gender:</p>
-              <select className='border border-sky-500 rounded-md text-lg outline-none px-3 py-1 text-gray-600 w-full sm:w-72'
+              <select className='border border-sky-500 rounded-md text-lg outline-none px-3 py-1 text-gray-600 w-full sm:w-72 bg-white'
                 onChange={(e) => setGender(e.target.value)} value={gender}>
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
@@ -274,42 +274,42 @@ export default function MedicalPage() {
               <p className='w-32 xl:w-44'>Phone:</p>
               <input
                 type='tel'
-                className='border border-sky-500 rounded-md text-lg outline-none px-3 py-1 text-gray-600 w-full sm:w-72'
+                className='border border-sky-500 rounded-md text-lg outline-none px-3 py-1 text-gray-600 w-full sm:w-72 bg-white'
                 value={phone}
                 onChange={handleChangePhone}
               />
             </div>
             <div className='flex mt-1 items-center'>
               <p className='w-32 xl:w-44'>Height:</p>
-              <input type='number' className='border border-sky-500 rounded-md text-lg outline-none px-3 py-1 text-gray-600 w-full sm:w-72'
+              <input type='number' className='border border-sky-500 rounded-md text-lg outline-none px-3 py-1 text-gray-600 w-full sm:w-72 bg-white'
                 onChange={(e) => setHeight(e.target.value)} defaultValue={height} />
             </div>
             <div className='flex mt-1 items-center'>
               <p className='w-32 xl:w-44'>Weight:</p>
-              <input type='number' className='border border-sky-500 rounded-md text-lg outline-none px-3 py-1 text-gray-600 w-full sm:w-72'
+              <input type='number' className='border border-sky-500 rounded-md text-lg outline-none px-3 py-1 text-gray-600 w-full sm:w-72 bg-white'
                 onChange={(e) => setWeight(e.target.value)} defaultValue={weight} />
             </div>
           </div>
           <div>
             <p className='text-xl text-red-500 font-bold mt-5 md:mt-0'>Important Information</p>
-            <textarea className='border border-sky-500 outline-none px-2 py-1 w-full h-[90%] mt-2 text-gray-600 text-lg'
+            <textarea className='border border-sky-500 outline-none px-2 py-1 w-full h-[90%] mt-2 text-gray-600 text-lg bg-white'
               onChange={(e) => setImportantinfo(e.target.value)} defaultValue={importantinfo}></textarea>
           </div>
         </div>
         <div className='mt-12'>
           <div className='h-36'>
             <p>Medical History:</p>
-            <textarea className='border border-sky-500 outline-none px-2 py-1 w-[100%] h-28 rounded-md text-gray-600 text-lg'
+            <textarea className='border border-sky-500 outline-none px-2 py-1 w-[100%] h-28 rounded-md text-gray-600 text-lg bg-white'
               onChange={(e) => setMedicalhistory(e.target.value)} defaultValue={medicalhistory}></textarea>
           </div>
           <div className='h-36'>
             <p>Medications:</p>
-            <textarea className='border border-sky-500 outline-none px-2 py-1 w-[100%] h-28 rounded-md text-gray-600 text-lg'
+            <textarea className='border border-sky-500 outline-none px-2 py-1 w-[100%] h-28 rounded-md text-gray-600 text-lg bg-white'
               onChange={(e) => setMedication(e.target.value)} defaultValue={medication}></textarea>
           </div>
           <div className='h-36'>
             <p>Allergies:</p>
-            <textarea className='border border-sky-500 outline-none px-2 py-1 w-[100%] h-28 rounded-md text-gray-600 text-lg'
+            <textarea className='border border-sky-500 outline-none px-2 py-1 w-[100%] h-28 rounded-md text-gray-600 text-lg bg-white'
               onChange={(e) => setAllergie(e.target.value)} defaultValue={allergie}></textarea>
           </div>
         </div>
@@ -320,25 +320,25 @@ export default function MedicalPage() {
               <p className='w-32 xl:w-44'>Phone:</p>
               <input
                 type='tel'
-                className='border border-sky-500 rounded-md text-lg outline-none px-3 py-1 text-gray-600 w-full sm:w-72'
+                className='border border-sky-500 rounded-md text-lg outline-none px-3 py-1 text-gray-600 w-full sm:w-72 bg-white'
                 value={phone2}
                 onChange={handleChangePhone2}
               />
             </div>
             <div className='flex mt-2 items-center'>
               <p className='w-32 xl:w-44'>Name:</p>
-              <input className='border border-sky-500 rounded-md text-lg outline-none px-3 py-1 text-gray-600 w-full sm:w-72'
+              <input className='border border-sky-500 rounded-md text-lg outline-none px-3 py-1 text-gray-600 w-full sm:w-72 bg-white'
                 onChange={(e) => setName2(e.target.value)} defaultValue={name2} />
             </div>
             <div className='flex mt-2 items-center'>
               <p className='w-32 xl:w-44'>Relationship:</p>
-              <input className='border border-sky-500 rounded-md text-lg outline-none px-3 py-1 text-gray-600 w-full sm:w-72'
+              <input className='border border-sky-500 rounded-md text-lg outline-none px-3 py-1 text-gray-600 w-full sm:w-72 bg-white'
                 onChange={(e) => setRelationship(e.target.value)} defaultValue={relationship} />
             </div>
           </div>
           <div className='mt-5 md:mt-0 '>
             <p className='text-lg text-red-500 font-bold'>DNR/DNI</p>
-            <textarea className='border border-sky-500 outline-none px-2 py-1 w-full h-[90%] mt-2 text-gray-600 text-lg'
+            <textarea className='border border-sky-500 outline-none px-2 py-1 w-full h-[90%] mt-2 text-gray-600 text-lg bg-white'
               onChange={(e) => setDNR(e.target.value)} defaultValue={dnr}></textarea>
           </div>
         </div>

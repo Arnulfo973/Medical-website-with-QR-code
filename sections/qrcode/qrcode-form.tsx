@@ -87,7 +87,7 @@ export default function MedicalPage() {
     <div className='flex justify-center items-center w-[100vw] h-[100vh]'>
       <div className='border border-sky-500 w-[600px] h-[200px] p-6'>
         <p className='text-center text-xl text-sky-500 font-bold'>Please enter unique code within medical bracelet's QR Code!</p>
-        <input className='border border-sky-500 w-full rounded-md text-lg outline-none px-2 py-1 text-center text-gray-500 mt-2' onChange={(e) => setQRcode(e.target.value)} />
+        <input className='border border-sky-500 w-full rounded-md text-lg outline-none px-2 py-1 text-center text-gray-500 mt-2 bg-white' onChange={(e) => setQRcode(e.target.value)} />
         <button className='border border-sky-500 outline-none text-sky-500 text-lg font-bold hover:bg-sky-500 hover:text-white w-full rounded-md mt-3' onClick={ok}>OK</button>
       </div>
     </div>

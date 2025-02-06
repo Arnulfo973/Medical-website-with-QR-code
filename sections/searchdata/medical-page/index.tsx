@@ -149,7 +149,7 @@ export default function MedicalPage() {
           <Image src="/logo.png" width={100} height={100} alt='logo' />
           <div className='flex items-center'>
             <p className='text-sky-500 text-xl font-semibold mr-3'>Patient's QR Code</p>
-            <input className='border border-sky-500 px-2 py-1 font-semibold w-52 h-9 rounded-md outline-none text-lg text-gray-500' placeholder='Search...' onChange={(e) => setSearchData(e.target.value)} onKeyDown={handleKeyDown} />
+            <input className='border border-sky-500 px-2 py-1 font-semibold w-52 h-9 rounded-md outline-none text-lg text-gray-500 bg-white' placeholder='Search...' onChange={(e) => setSearchData(e.target.value)} onKeyDown={handleKeyDown} />
           </div>
         </div>
         <div className='flex w-full justify-center'>
@@ -161,66 +161,66 @@ export default function MedicalPage() {
           <div className='w-[50%]'>
             <div className='flex mt-1 items-center'>
               <p className='w-44'>Name:</p>
-              <input className='border border-sky-500 rounded-md text-lg outline-none px-3 py-1 text-gray-600 w-96' value={name} />
+              <input className='border border-sky-500 rounded-md text-lg outline-none px-3 py-1 text-gray-600 w-96 bg-white' value={name} />
             </div>
             <div className='flex mt-1 items-center'>
               <p className='w-44'>Date of Birth:</p>
-              <input className='border border-sky-500 rounded-md text-lg outline-none px-3 py-1 text-gray-600 w-96' value={birth} />
+              <input className='border border-sky-500 rounded-md text-lg outline-none px-3 py-1 text-gray-600 w-96 bg-white' value={birth} />
             </div>
             <div className='flex mt-1 items-center'>
               <p className='w-44'>Address:</p>
-              <input className='border border-sky-500 rounded-md text-lg outline-none px-3 py-1 text-gray-600 w-96' value={address} />
+              <input className='border border-sky-500 rounded-md text-lg outline-none px-3 py-1 text-gray-600 w-96 bg-white' value={address} />
             </div>
             <div className='flex mt-1 items-center'>
               <p className='w-44'>Country:</p>
-              <input className='border border-sky-500 rounded-md text-lg outline-none px-3 py-1 text-gray-600 w-96' value={country} />
+              <input className='border border-sky-500 rounded-md text-lg outline-none px-3 py-1 text-gray-600 w-96 bg-white' value={country} />
             </div>
             <div className='flex mt-1 items-center'>
               <p className='w-44'>City:</p>
-              <input className='border border-sky-500 rounded-md text-lg outline-none px-3 py-1 text-gray-600 w-96' value={city} />
+              <input className='border border-sky-500 rounded-md text-lg outline-none px-3 py-1 text-gray-600 w-96 bg-white' value={city} />
             </div>
             <div className='flex mt-1 items-center'>
               <p className='w-44'>Zip Code:</p>
-              <input className='border border-sky-500 rounded-md text-lg outline-none px-3 py-1 text-gray-600 w-96' value={zipcode} />
+              <input className='border border-sky-500 rounded-md text-lg outline-none px-3 py-1 text-gray-600 w-96 bg-white' value={zipcode} />
             </div>
             <div className='flex mt-1 items-center'>
               <p className='w-44'>Ethnicity:</p>
-              <input className='border border-sky-500 rounded-md text-lg outline-none px-3 py-1 text-gray-600 w-96' value={ethnicity} />
+              <input className='border border-sky-500 rounded-md text-lg outline-none px-3 py-1 text-gray-600 w-96 bg-white' value={ethnicity} />
             </div>
             <div className='flex mt-1 items-center'>
               <p className='w-44'>Gender:</p>
-              <input className='border border-sky-500 rounded-md text-lg outline-none px-3 py-1 text-gray-600 w-96' value={gender} />
+              <input className='border border-sky-500 rounded-md text-lg outline-none px-3 py-1 text-gray-600 w-96 bg-white' value={gender} />
             </div>
             <div className='flex mt-1 items-center'>
               <p className='w-44'>Phone:</p>
-              <input className='border border-sky-500 rounded-md text-lg outline-none px-3 py-1 text-gray-600 w-96' value={phone} />
+              <input className='border border-sky-500 rounded-md text-lg outline-none px-3 py-1 text-gray-600 w-96 bg-white' value={phone} />
             </div>
             <div className='flex mt-1 items-center'>
               <p className='w-44'>Height:</p>
-              <input className='border border-sky-500 rounded-md text-lg outline-none px-3 py-1 text-gray-600 w-96' value={height} />
+              <input className='border border-sky-500 rounded-md text-lg outline-none px-3 py-1 text-gray-600 w-96 bg-white' value={height} />
             </div>
             <div className='flex mt-1 items-center'>
               <p className='w-44'>Weight:</p>
-              <input className='border border-sky-500 rounded-md text-lg outline-none px-3 py-1 text-gray-600 w-96' value={weight} />
+              <input className='border border-sky-500 rounded-md text-lg outline-none px-3 py-1 text-gray-600 w-96 bg-white' value={weight} />
             </div>
           </div>
           <div className='w-[50%]'>
             <p className='text-xl text-red-500 font-bold'>Important Information</p>
-            <textarea className='border border-sky-500 outline-none px-2 py-1 w-[90%] h-[90%] mt-2 text-gray-600 text-lg' value={importantinfo}></textarea>
+            <textarea className='border border-sky-500 outline-none px-2 py-1 w-[90%] h-[90%] mt-2 text-gray-600 text-lg bg-white' value={importantinfo}></textarea>
           </div>
         </div>
         <div className='mt-8'>
           <div className='h-36'>
             <p>Medical History:</p>
-            <textarea className='border border-sky-500 outline-none px-2 py-1 w-[100%] h-28 rounded-md text-gray-600 text-lg' value={medicalhistory}></textarea>
+            <textarea className='border border-sky-500 outline-none px-2 py-1 w-[100%] h-28 rounded-md text-gray-600 text-lg bg-white' value={medicalhistory}></textarea>
           </div>
           <div className='h-36'>
             <p>Medications:</p>
-            <textarea className='border border-sky-500 outline-none px-2 py-1 w-[100%] h-28 rounded-md text-gray-600 text-lg' value={medication}></textarea>
+            <textarea className='border border-sky-500 outline-none px-2 py-1 w-[100%] h-28 rounded-md text-gray-600 text-lg bg-white' value={medication}></textarea>
           </div>
           <div className='h-36'>
             <p>Allergies:</p>
-            <textarea className='border border-sky-500 outline-none px-2 py-1 w-[100%] h-28 rounded-md text-gray-600 text-lg' value={allergie}></textarea>
+            <textarea className='border border-sky-500 outline-none px-2 py-1 w-[100%] h-28 rounded-md text-gray-600 text-lg bg-white' value={allergie}></textarea>
           </div>
         </div>
         <div className='flex mt-5'>
@@ -228,20 +228,20 @@ export default function MedicalPage() {
             <p className='text-lg text-red-500 font-bold'>In case of emergency, contact:</p>
             <div className='flex mt-2 items-center'>
               <p className='w-44'>Phone Number:</p>
-              <input className='border border-sky-500 rounded-md text-lg outline-none px-3 py-1 text-gray-600' value={phone2} />
+              <input className='border border-sky-500 rounded-md text-lg outline-none px-3 py-1 text-gray-600 bg-white' value={phone2} />
             </div>
             <div className='flex mt-2 items-center'>
               <p className='w-44'>Name:</p>
-              <input className='border border-sky-500 rounded-md text-lg outline-none px-3 py-1 text-gray-600' value={name2} />
+              <input className='border border-sky-500 rounded-md text-lg outline-none px-3 py-1 text-gray-600 bg-white' value={name2} />
             </div>
             <div className='flex mt-2 items-center'>
               <p className='w-44'>Relationship:</p>
-              <input className='border border-sky-500 rounded-md text-lg outline-none px-3 py-1 text-gray-600' value={relationship} />
+              <input className='border border-sky-500 rounded-md text-lg outline-none px-3 py-1 text-gray-600 bg-white' value={relationship} />
             </div>
           </div>
           <div className='w-[50%]'>
             <p className='text-lg text-red-500 font-bold'>DNR/DNI</p>
-            <textarea className='border border-sky-500 outline-none px-2 py-1 w-[90%] h-[90%] mt-2 text-gray-600 text-lg' value={dnr}></textarea>
+            <textarea className='border border-sky-500 outline-none px-2 py-1 w-[90%] h-[90%] mt-2 text-gray-600 text-lg bg-white' value={dnr}></textarea>
           </div>
         </div>
       </div>
