@@ -209,6 +209,28 @@ export default function MedicalPage() {
     }
   };
 
+  const formatHeight = (value: any) => {
+    // Remove non-numeric characters
+    const numbers = value.replace(/\D/g, '');
+
+    // Format to <00' 00">
+    const feet = numbers.slice(0, 2); // First two digits for feet
+    const inches = numbers.slice(2, 4); // Next two digits for inches
+
+    // Construct formatted height
+    let formattedHeight = '';
+    if (feet) formattedHeight += `${feet}'`;
+    if (inches) formattedHeight += ` ${inches}"`;
+
+    return formattedHeight.trim();
+  };
+
+  const handleChangeHeight = (e: any) => {
+    const value = e.target.value;
+    const formattedValue = formatHeight(value);
+    setHeight(formattedValue);
+  };
+
   return (
     <div className='flex justify-center w-[96vw] bg-sky-500 py-10'>
       <div className='border w-[100vw] xl:w-[75vw] p-8 bg-white'>
@@ -281,8 +303,12 @@ export default function MedicalPage() {
             </div>
             <div className='flex mt-1 items-center'>
               <p className='w-32 xl:w-44'>Height:</p>
-              <input type='number' className='border border-sky-500 rounded-md text-lg outline-none px-3 py-1 text-gray-600 w-full sm:w-72 bg-white'
-                onChange={(e) => setHeight(e.target.value)} defaultValue={height} />
+              <input
+                type='text'
+                className='border border-sky-500 rounded-md text-lg outline-none px-3 py-1 text-gray-600 w-full sm:w-72 bg-white'
+                onChange={handleChangeHeight}
+                value={height}
+              />
             </div>
             <div className='flex mt-1 items-center'>
               <p className='w-32 xl:w-44'>Weight:</p>

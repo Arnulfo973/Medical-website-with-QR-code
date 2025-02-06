@@ -28,7 +28,7 @@ export default function SignInViewPage() {
               href="/signup"
               className="underline underline-offset-4 hover:text-sky-500"
             >
-              Create new one account
+              Create new account
             </Link>
           </p>
         </div>
